@@ -13,11 +13,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import no.uio.ifi.in2000.smsolsae.oblig1.ui.converter.UnitConverter
 import no.uio.ifi.in2000.smsolsae.oblig1.ui.palindrome.PalindromeChecker
 import no.uio.ifi.in2000.smsolsae.oblig1.ui.theme.Smsolsae_oblig1Theme
 
 sealed class Screens(val route: String){
     data object PalindromeScreen: Screens("ui.palindrome.PalindromeScreen.kt")
+    data object UnitConverter: Screens("ui.converter.UnitConverter.kt")
 }
 
 
@@ -26,7 +28,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Smsolsae_oblig1Theme {
-                // A surface container using the 'background' color from the theme
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -38,25 +39,10 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screens.PalindromeScreen.route,
                     ){
                         composable(Screens.PalindromeScreen.route){ PalindromeChecker(navController) }
+                        composable(Screens.UnitConverter.route){ UnitConverter(navController)}
                     }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Smsolsae_oblig1Theme {
-        Greeting("Android")
     }
 }

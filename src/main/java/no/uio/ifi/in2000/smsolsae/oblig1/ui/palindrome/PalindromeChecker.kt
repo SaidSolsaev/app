@@ -33,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import no.uio.ifi.in2000.smsolsae.oblig1.Screens
 import no.uio.ifi.in2000.smsolsae.oblig1.isPalindrome
 
 
@@ -136,7 +137,7 @@ fun PalindromeChecker(navController: NavController){
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
-            onClick = {println("clicked")}
+            onClick = {navController.navigate(Screens.UnitConverter.route)}
         ){
             Text(text = "Unit Converter")
         }
